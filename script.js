@@ -85,7 +85,7 @@ var Typer={
 					Typer.index-=Typer.speed;//	remove speed for deleting text
 			}
 			var text=$("<div/>").text(Typer.text.substring(0,Typer.index)).html();// parse the text for stripping html enities
-			var rtn= new RegExp("\r", "g"); // newline regex
+			var rtn= new RegExp("\n", "g"); // newline regex
 			var rts= new RegExp("\\s", "g"); // whitespace regex
 			var rtt= new RegExp("\\t", "g"); // tab regex
 			$("#console").html(text.replace(rtn,"<br/>").replace(rtt,"&nbsp;&nbsp;&nbsp;&nbsp;").replace(rts,"&nbsp;"));// replace newline chars with br, tabs with 4 space and blanks with an html blank
