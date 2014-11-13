@@ -2,7 +2,7 @@ body{
 	background:#000000;
 	color:#00FF00;
 	font-family:monospace;
-	word-wrap:break-word;
+	word-wrap:normal;
 }
 
 .accessGranted{
