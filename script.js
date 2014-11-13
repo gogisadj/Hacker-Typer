@@ -79,9 +79,9 @@ var Typer={
 			var cont=Typer.content(); // get the console content
 			if(cont.substring(cont.length-1,cont.length)=="|") // if the last char is the blinking cursor
 				$("#console").html($("#console").html().substring(0,cont.length-1)); // remove it before adding the text
-				wordWrap++;
-				if(wordWrap > (screen.width / 8)){
-					$("#console").append("\"<br>\"")
+				Typer.wordWrap+=Typer.speed;
+				if(Typer.wordWrap > (screen.width / 8)){
+					$("#console").append("<br>")
 				}
 			if(key.keyCode!=8){ // if key is not backspace
 				Typer.index+=Typer.speed;	// add to the index the speed
