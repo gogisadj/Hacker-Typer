@@ -91,7 +91,7 @@ var Typer={
 			var rtt= new RegExp("\\t", "g"); // tab regex
 			$("#console").html(text.replace(rtn,"<br/>").replace(rtt,"&nbsp;&nbsp;&nbsp;&nbsp;").replace(rts,"&nbsp;"));// replace newline chars with br, tabs with 4 space and blanks with an html blank
 			wordWrap++;
-			if(wordWrap > screen.width / 8){
+			if(wordWrap > $(screen).width() / 8){
 				$("#console").append("<br>")
 			}
 			window.scrollBy(0,50); // scroll to make sure bottom is always visible
