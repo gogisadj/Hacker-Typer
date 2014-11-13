@@ -81,7 +81,7 @@ var Typer={
 				$("#console").html($("#console").html().substring(0,cont.length-1)); // remove it before adding the text
 				Typer.wordWrap+=Typer.speed;
 				if(Typer.wordWrap > (screen.width / 8)){
-					$("#console").append("<br>")
+					$("#console").append("\"<br>\"")
 				}
 			if(key.keyCode!=8){ // if key is not backspace
 				Typer.index+=Typer.speed;	// add to the index the speed
