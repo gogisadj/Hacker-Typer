@@ -80,6 +80,9 @@ var Typer={
 			if(cont.substring(cont.length-1,cont.length)=="|") // if the last char is the blinking cursor
 				$("#console").html($("#console").html().substring(0,cont.length-1)); // remove it before adding the text
 				wordWrap++;
+				if(wordWrap > (screen.width / 8)){
+					$("#console").append("<br>")
+				}
 			if(key.keyCode!=8){ // if key is not backspace
 				Typer.index+=Typer.speed;	// add to the index the speed
 			}else{
@@ -91,9 +94,6 @@ var Typer={
 			var rts= new RegExp("\\s", "g"); // whitespace regex
 			var rtt= new RegExp("\\t", "g"); // tab regex
 			$("#console").html(text.replace(rtn,"<br/>").replace(rtt,"&nbsp;&nbsp;&nbsp;&nbsp;").replace(rts,"&nbsp;"));// replace newline chars with br, tabs with 4 space and blanks with an html blank
-			if(wordWrap > $(screen).width() / 8){
-				$("#console").append("<br>")
-			}
 			window.scrollBy(0,50); // scroll to make sure bottom is always visible
 		}
 		if ( key.preventDefault && key.keyCode != 122 ) { // prevent F11(fullscreen) from being blocked
