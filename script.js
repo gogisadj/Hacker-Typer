@@ -18,6 +18,7 @@ var Typer={
 	accessCountimer:null,
 	index:0, // current cursor position
 	speed:2, // speed of the Typer
+	wordWrap:0,
 	file:"", //file, must be setted
 	accessCount:0, //times alt is pressed for Access Granted
 	deniedCount:0, //times caps is pressed for Access Denied
@@ -89,6 +90,10 @@ var Typer={
 			var rts= new RegExp("\\s", "g"); // whitespace regex
 			var rtt= new RegExp("\\t", "g"); // tab regex
 			$("#console").html(text.replace(rtn,"<br/>").replace(rtt,"&nbsp;&nbsp;&nbsp;&nbsp;").replace(rts,"&nbsp;"));// replace newline chars with br, tabs with 4 space and blanks with an html blank
+			wordWrap++;
+			if(wordWrap > screen.width / 8){
+				$("#console").append("<br>")
+			}
 			window.scrollBy(0,50); // scroll to make sure bottom is always visible
 		}
 		if ( key.preventDefault && key.keyCode != 122 ) { // prevent F11(fullscreen) from being blocked
